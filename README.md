@@ -30,7 +30,7 @@ See [Deployment](https://github.com/ValueAPI/Deployment).
 Enable authorization by creating a `auth_token` value for a given `context`.
 Afterwards, this access token must be passed in the `Authorization`-header of the http request.
 
-### Example
+## Example
 ```shell
 # Create the `hello_world` value in the context `my_context` with the content `test123`
 curl https://values.my-domain.de/my_context/hello_world/test123 
@@ -52,3 +52,10 @@ curl --header Authorization:my_secret_token https://values.my-domain.de/my_conte
 # Delete the auth token
 curl -X DELETE --header Authorization:my_secret_token https://values.my-domain.de/my_context/auth_token
 ```
+
+## Frontend
+See [Frontend](https://github.com/ValueAPI/Frontend).
+
+## Connectors
+- [Python](https://github.com/ValueAPI/Connector-Python)
+
