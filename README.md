@@ -12,10 +12,13 @@ Only plain text is supported, handling type casting must be done in the applicat
 ## Run
 ```
 uv sync
-uv run fastapi run src/valueapi/main.py   
+## Dev server
+uv run fastapi dev src/valueapi/main.py 
+# Production server
+uv run fastapi run src/valueapi/main.py --port 80 --host 0.0.0.0
 ```
 
-## Docker
+### Build and run with Docker
 ```
 docker compose up -d
 ```
@@ -28,14 +31,16 @@ Afterwards, this access token must be passed in the `Authorization`-header of th
 ```shell
 # Create the `hello_world` value in the context `my_context` with the content `test123`
 curl https://values.my-domain.de/my_context/hello_world/test123 
+# OR using POST:
+curl -X POST -d "test123" --header Authorization:my_secret_token https://values.my-domain.de/my_context/hello_world
 
 # Get this value -> Returns: test123
 curl https://values.my-domain.de/my_context/hello_world
 
 # Set an auth token:
-curl https://values.my-domain.de/my_context/auth_token/my_secret_token
+curl -X POST -d "my_secret_token" https://values.my-domain.de/my_context/auth_token
 
-# Try to get the value -> Returns 402
+# Try to get the value -> Returns 401
 curl https://values.my-domain.de/my_context/hello_world
 
 # Try to get this value with the auth token -> Returns: test123
