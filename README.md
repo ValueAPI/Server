@@ -23,6 +23,9 @@ uv run fastapi run src/valueapi/main.py --port 80 --host 0.0.0.0
 docker compose up -d
 ```
 
+### Production
+See [Deployment](https://github.com/ValueAPI/Deployment).
+
 ## Authorization
 Enable authorization by creating a `auth_token` value for a given `context`.
 Afterwards, this access token must be passed in the `Authorization`-header of the http request.
