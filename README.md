@@ -1,4 +1,5 @@
-# Very simple VALUE API
+# Value API - Server 
+A very simple API to store static values.
 
 In a given context `context`
 - Store a value: 
