@@ -12,5 +12,10 @@ COPY . /app
 WORKDIR /app
 RUN uv sync --frozen --no-cache
 VOLUME [ "/app/data" ]
+
+ENV PATH="/app/venv/bin:$PATH"
+ENV PORT=80
+ENV HOST=0.0.0.0
+
 # Run the application.
-CMD [".venv/bin/fastapi", "run", "src/valueapi/main.py", "--port", "80", "--host", "0.0.0.0"]
+CMD uv run fastapi run src/valueapi/main.py --port $PORT --host $HOST 
